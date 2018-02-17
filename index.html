@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pour-alator</title>
+	<link rel="stylesheet" href="css/master.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="theme-color" content="#8693AB">
+	<link rel="icon" type="image/png" href="favicon.png" sizes="192x192">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+	<div id="calculator">
+
+		<card class="bl">
+			<mini-card class="center">
+				<h1><em>Pour</em>-alator</h1>
+				<em><small>A pourouver calculator for the Hario V60.</small></em>
+			</mini-card>
+
+			<h3>Desired Brewed Amount (mL)</h3>
+			<input type="number" v-model="totalBrewedContent" @keyup="updateGrounds" required min="50" max="1000" placeholder="Desired Brewed Amount (mL)" value="200">
+			<h3>Required Grounds Amount (g)</h3>
+			<input type="number" v-model="requiredGrounds" @keyup="updateBrewed" required min="1" max="60" placeholder="Required Grounds Amount (g)">
+		</card>
+
+		<card class="ib half-d">
+			<h2>Total Brew Time </h2><span>{{totalBrewTime}} seconds</span>
+			<h3>1. Bloom Pour Duration </h3><span>{{bpTime}} seconds</span>
+			<h3>2. Median Pour Duration </h3><span>{{mpTime}} seconds</span>
+			<h3>3. Top-Off Pour Duration </h3><span>{{tpTime}} seconds</span>
+		</card>
+		
+		<card class="ib half-d">
+			<h2>Total Brewed Content </h2><span>{{totalBrewedContent}} mL</span>
+			<h3>1. Bloom Pour Amount </h3><span>{{bpWater}} mL</span>
+			<h3>2. Median Pour Amount </h3><span>{{mpWater}} mL</span>
+			<h3>3. Top-Off Pour Amount </h3><span>{{tpWater}} mL</span>
+		</card>
+			
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
