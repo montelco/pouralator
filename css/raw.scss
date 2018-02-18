@@ -234,6 +234,12 @@ card, mini-card {
             text-align: right;
         }
     }
+    card:not(:last-of-type){
+        margin-bottom: 0.75em;
+    }
+    card:last-of-type{
+        margin-bottom: 0;
+    }
 }
 
 input{
