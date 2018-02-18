@@ -1,0 +1,227 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+$font: 'Open Sans', sans-serif;
+
+/* White hsla(0,0%,99%,1) */
+$white: hsla(0,0%,99%,1);
+
+/* Dark Colours Nickel hsla(194,15%,45%,1) */ 
+$dark: hsla(230,15%,15%,0.985);
+$nickel: #69707A;
+
+/* Main Colour: Grey-Blue */
+$mc_hsla: hsla(219,22%,67,1);
+$mc_hsla_clear: hsla(219,22%,67,0.75);
+
+/* Secondary Colour:  Terra Cotta Orange hsla(14,58%,88%,1)*/
+$terra_cotta: #e17c5eff;
+
+/* Accent Colour Mint hsla(161,20%,80%) */
+$mint: #a4cdc0;
+$pewter: #9BA9B5;
+$steel_teal: #63798c;
+
+/* Gradient Colours Blue White to Dark Blue White*/
+$bg_light: hsla(220,1%,98%,0.8);
+$bg_dark:  hsla(221,7%,54%,0.8);
+
+// Insert a gradient that goes in a certain direction from one colour to another with a background image
+@mixin grad($direction, $start, $end, $url) {
+    background: linear-gradient(to $direction, $start 0%, $end 100%), url($url);
+}
+
+/*-----START STYLES------*/ 
+
+html{
+    min-height: 100vh;
+    @include grad(bottom, $bg_light, $bg_dark, '../bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-attachment: fixed;
+}
+
+
+
+h1,h2,h3{
+    margin-top: 6px;
+    margin-bottom: 3px;
+}
+
+body{
+    font-family: $font;
+    color: $dark;
+}
+
+card{
+    background: hsla(0,0%,98%,0.55);
+    border: solid 1px $white;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.08);
+    padding: 1em;
+    margin-bottom: 2em;
+
+    header{
+        padding-bottom: 0.75rem;
+    }
+
+    h2{
+        color: $nickel;
+        display: inline;
+        padding-right: 0.75rem;
+    }
+    h2 + span {
+        color: $pewter;
+        font-size: 0.75em;
+    }
+
+    h3{
+        color: $nickel;
+    }
+
+    timeline{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.25rem;
+
+        &::before{
+            position: absolute;
+            left: 0.95rem;
+            z-index: 0;
+            top: 0;
+            content: '';
+            background: $mint;
+            width: 2px;
+            height: 100%;
+        }
+
+        point{
+            z-index: 10;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            i{
+                color: $white;
+                background: $mint;
+                border-radius: 50%;
+                padding: 0.25rem;
+                font-size: 0.95rem;
+                z-index: 10;
+            }
+            span{
+                color: $terra_cotta;
+                font-size: 0.65em;
+                padding-left: 0.45rem;
+                width: 45px;
+                display: inline;
+            }
+            h3{
+                display: inline-block;
+                min-width: 130px;
+                color: $steel_teal;
+            }
+        }
+        point:not(:last-of-type) {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+mini-card{
+    display: table;
+    background: #69707abb;
+    border: solid 1px #fcfcfc32;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.04);
+    padding: 0.75em;
+    margin-bottom: 0.5em;
+
+    h1{
+    font-weight: 400;
+    display: table;
+    margin: 0 auto;
+    color: $white;
+
+         picture img{
+            flex: 1;
+            height: 1.125em;
+            vertical-align: middle;
+        }
+    }
+
+    h1 + em small {
+        color: $mint;
+    }
+}
+
+card, mini-card {
+    border-radius: 0.195rem;
+}
+
+.center{
+    margin: 0 auto;
+}
+
+.bl{
+    display: block;
+}
+
+.ib{
+    display: block;
+}
+
+@media(min-width: 1245px){
+    .half-d{
+        width: 47.25%;
+    }
+    .ib{
+        display: inline-block;
+    }
+}
+
+input{
+    margin: 0.5em auto 0.5em auto;
+    width: 85%;
+    display: block;
+    border: none;
+    padding: 10px 0;
+    border-bottom: solid 1px $mint;
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0) 96%, $mint 4%);
+    background: -o-linear-gradient(rgba(255, 255, 255, 0) 96%, $mint 4%);
+    background: linear-gradient(rgba(255, 255, 255, 0) 96%, $mint 4%);
+    -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    transition: all 0.25s cubic-bezier(0.64, 0.09, 0.08, 1);
+    background-repeat: no-repeat;
+    background-position: -100vw 0;
+    background-size: 100%;
+    color: inherit;
+    resize: none;
+}
+
+input:focus, textarea:focus{
+    box-shadow: none;
+    outline: none;
+    background-position: 0 0;
+}
+
+input:focus::-webkit-input-placeholder{
+    color: rgba(240,240,240,0.85);
+    font-size: 11px;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+    visibility: visible !important;
+}
+
+textarea:focus::-webkit-input-placeholder, textarea:valid::-webkit-input-placeholder {
+    color: rgba(240,240,240,0.85);
+    font-size: 11px;
+    -webkit-transform: translateY(-40px);
+            transform: translateY(-40px);
+    visibility: visible !important;
+}
+
+input[type=number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+} 
+
+input[type=number]::-webkit-outer-spin-button { 
+    
+}

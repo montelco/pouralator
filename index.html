@@ -3,12 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Pour-alator</title>
-	<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="css/compiled.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="mobile-web-app-capable" content="yes">
 	<meta name="theme-color" content="#8693AB">
-	<link rel="icon" type="image/png" href="favicon.png" sizes="192x192">
+	<link rel="icon" type="image/png" href="v60.svg" sizes="192x192">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
@@ -16,7 +17,13 @@
 
 		<card class="bl">
 			<mini-card class="center">
-				<h1><em>Pour</em>-alator</h1>
+				<h1>
+					<picture>
+						<img src="v60.svg">
+					</picture>
+					<em>Pour</em>
+				-alator
+			</h1>
 				<em><small>A pourouver calculator for the Hario V60.</small></em>
 			</mini-card>
 
@@ -27,17 +34,37 @@
 		</card>
 
 		<card class="ib half-d">
-			<h2>Total Brew Time </h2><span>{{totalBrewTime}} seconds</span>
-			<h3>1. Bloom Pour Duration </h3><span>{{bpTime}} seconds</span>
-			<h3>2. Median Pour Duration </h3><span>{{mpTime}} seconds</span>
-			<h3>3. Top-Off Pour Duration </h3><span>{{tpTime}} seconds</span>
+			<header>
+				<h2>{{totalBrewTime}} seconds</h2><span>Total Brewing Time </span>
+			</header>
+			<timeline>
+				<point>
+					<i class="material-icons">access_time</i><span>Bloom </span><h3>{{bpTime}}s duration</h3>
+				</point>
+				<point>
+					<i class="material-icons">access_time</i><span>Median </span><h3>{{mpTime}}s duration</h3>
+				</point>
+				<point>
+					<i class="material-icons">access_time</i><span>Top-Off </span><h3>{{tpTime}}s duration</h3>
+				</point>
+			</timeline>
 		</card>
 		
 		<card class="ib half-d">
-			<h2>Total Brewed Content </h2><span>{{totalBrewedContent}} mL</span>
-			<h3>1. Bloom Pour Amount </h3><span>{{bpWater}} mL</span>
-			<h3>2. Median Pour Amount </h3><span>{{mpWater}} mL</span>
-			<h3>3. Top-Off Pour Amount </h3><span>{{tpWater}} mL</span>
+			<header>
+				<h2>{{totalBrewedContent}} mL</h2><span>Total Brewed Amount </span>
+			</header>
+			<timeline>
+				<point>
+					<i class="material-icons">invert_colors</i><span>Bloom </span><h3>Add {{bpWater}} mL</h3>
+				</point>
+				<point>
+					<i class="material-icons">invert_colors</i><span>Median </span><h3>Add {{mpWater}} mL</h3>
+				</point>
+				<point>
+					<i class="material-icons">invert_colors</i><span>Top-Off </span><h3>Add {{tpWater}} mL</h3>
+				</point>
+			</timeline>
 		</card>
 			
 	</div>
