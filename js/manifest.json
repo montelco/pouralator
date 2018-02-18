@@ -1,0 +1,15 @@
+{
+  "name": "Pouralator",
+  "short_name": "Pouralator",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#69707a",
+  "theme_color": "#69707a",
+  "start_url": "/?homescreen=1",
+  "scope": "/",
+  "icons": [{
+        "src": "favicon.png",
+        "type": "image/png",
+        "sizes": "595x595"
+      }],
+}

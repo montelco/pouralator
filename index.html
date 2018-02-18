@@ -11,6 +11,7 @@
 	<meta name="theme-color" content="#69707a">
 	<link rel="icon" type="image/png" href="favicon.png" sizes="192x192">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="manifest" href="js/manifest.json">
 </head>
 <body>
 	<div id="calculator">
@@ -18,32 +19,35 @@
 		<card class="bl">
 			<mini-card class="center">
 				<h1>
-					<img src="v60.svg">
+					<img src="v60.svg" alt="Icon of a Hario V60">
 					<em>P</em><em class="hidden-xs">our</em><span class="hidden-xs">alator</span>
 			</h1>
 				<em><small class="hidden-xs">A simple pourouver calculator</small></em>
 			</mini-card>
 
 			<h3><span class="hidden-xs">Brewed </span>Coffee (mL)</h3>
-			<input type="number" v-model="totalBrewedContent" @keyup="updateGrounds" required min="50" max="1000" placeholder="Brewed Coffee (mL)" value="200">
+			<input type="number" v-model="totalBrewedContent" @keyup="updateGrounds" required min="50" max="1000" aria-label="Desired Coffee" placeholder="Brewed Coffee (mL)" value="200">
 			<br class="only-xs">
 			<h3>Grounds<span class="hidden-xs"> to Brew</span> (g)</h3>
-			<input type="number" v-model="requiredGrounds" @keyup="updateBrewed" required min="1" max="60" placeholder="Grounds to Brew (g)">
+			<input type="number" v-model="requiredGrounds" @keyup="updateBrewed" required min="1" max="60" aria-label="Grounds (in grams)" placeholder="Grounds to Brew (g)">
+			<br class="only-xs">
+			<h3>Ratio (1:n)</h3>
+			<input type="number" v-model="brewRatio" @keyup="updateRatio" required min="3" max="20" aria-label="Ratio (Ground to Water)" placeholder="Grounds to Brew (g)">
 		</card>
 
 		<card class="ib half-d">
 			<header>
-				<h2>{{totalBrewTime}} seconds</h2><span>Total Brewing Time </span>
+				<h2>{{totalBrewTimeMin}}:{{totalBrewTimeSec | two_digits}}s</h2><span>Total Brewing Time </span>
 			</header>
 			<timeline>
 				<point>
-					<i class="material-icons">access_time</i><span>Bloom </span><h3>{{bpTime}}s duration</h3>
+					<i class="material-icons">access_time</i><span>Bloom</span><h3>{{bpTime}}s</h3>
 				</point>
 				<point>
-					<i class="material-icons">access_time</i><span>Median </span><h3>{{mpTime}}s duration</h3>
+					<i class="material-icons">access_time</i><span>Median<br class="only-xs"><span class="only-xs">{{ timeRemainingMed }}s to go</span></span><h3>{{mpTime}}s</h3>
 				</point>
 				<point>
-					<i class="material-icons">access_time</i><span>Top-Off </span><h3>{{tpTime}}s duration</h3>
+					<i class="material-icons">access_time</i><span>Top-Off<br class="only-xs"><span class="only-xs">{{ timeRemainingTop }}s to go</span></span><h3>{{tpTime}}s</h3>
 				</point>
 			</timeline>
 		</card>
@@ -66,6 +70,13 @@
 		</card>
 			
 	</div>
+	<script>
+		if('serviceWorker' in navigator) {
+		  navigator.serviceWorker
+		           .register('sw.js')
+		           .then(function() { console.log("Service Worker Registered"); });
+		}
+	</script>
     <script src="js/vue.min.js"></script>
     <script src="js/app.js"></script>
 </body>
