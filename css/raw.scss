@@ -34,11 +34,7 @@ $bg_dark:  hsla(221,7%,54%,0.8);
 
 html{
     min-height: 100vh;
-    @include grad(bottom, $bg_light, $bg_dark, '../bg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    background-attachment: fixed;
+    background: $nickel;
 }
 
 
@@ -54,7 +50,7 @@ body{
 }
 
 card{
-    background: hsla(0,0%,98%,0.55);
+    background: hsla(0,0%,98%,0.95);
     border: solid 1px $white;
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.08);
     padding: 1em;
@@ -133,7 +129,7 @@ mini-card{
     border: solid 1px rgba(250,250,250,0.2);
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.04);
     padding: 0.75em;
-    margin-bottom: 0.5em;
+    text-align: center;
 
     h1{
         font-weight: 400;
@@ -141,7 +137,7 @@ mini-card{
         margin: 0 auto;
         color: $white;
 
-         picture img{
+        img{
             flex: 1;
             height: 1.125em;
             vertical-align: middle;
@@ -173,6 +169,17 @@ card, mini-card {
 }
 
 @media(min-width: 1245px){
+    html{
+        @include grad(bottom, $bg_light, $bg_dark, '../bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-attachment: fixed;
+    }
+        card{
+            background: hsla(0,0%,98%,0.75);
+    }
+
     .half-d{
         width: 47.25%;
     }
