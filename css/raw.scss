@@ -168,6 +168,10 @@ card, mini-card {
     display: block;
 }
 
+.only-xs{
+    display: none;
+}
+
 @media(min-width: 1245px){
     html{
         @include grad(bottom, $bg_light, $bg_dark, '../bg.jpg');
@@ -185,6 +189,47 @@ card, mini-card {
     }
     .ib{
         display: inline-block;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .hidden-xs{
+        display: none !important;
+    }
+    .only-xs{
+        display: inherit;
+    }
+
+    mini-card{
+        float: left;
+        max-width: 15vw;
+        max-height: 15vw;
+        margin-right: 2rem !important;
+        padding: 0;
+
+        h1{
+            padding: 0.5rem 0.62rem;
+
+            img{
+                height: 0.75em;
+            }
+
+            em {
+                margin-left: -8px;
+            }
+        }
+    }
+
+    card.bl{
+        h3{
+            display: inline-block;
+            width: 40vw;
+        }
+        h3 + input {
+            display: inline-block;
+            width: 14vw;
+            text-align: right;
+        }
     }
 }
 

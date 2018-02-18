@@ -8,8 +8,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="mobile-web-app-capable" content="yes">
-	<meta name="theme-color" content="#8693AB">
-	<link rel="icon" type="image/png" href="v60.svg" sizes="192x192">
+	<meta name="theme-color" content="#69707a">
+	<link rel="icon" type="image/png" href="favicon.png" sizes="192x192">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
@@ -18,19 +18,17 @@
 		<card class="bl">
 			<mini-card class="center">
 				<h1>
-					<picture>
-						<img src="v60.svg">
-					</picture>
-					<em>Pour</em>
-				-alator
+					<img src="v60.svg">
+					<em>P</em><em class="hidden-xs">our</em><span class="hidden-xs">alator</span>
 			</h1>
-				<em><small>A pourouver calculator for the Hario V60.</small></em>
+				<em><small class="hidden-xs">A simple pourouver calculator</small></em>
 			</mini-card>
 
-			<h3>Desired Brewed Amount (mL)</h3>
-			<input type="number" v-model="totalBrewedContent" @keyup="updateGrounds" required min="50" max="1000" placeholder="Desired Brewed Amount (mL)" value="200">
-			<h3>Required Grounds Amount (g)</h3>
-			<input type="number" v-model="requiredGrounds" @keyup="updateBrewed" required min="1" max="60" placeholder="Required Grounds Amount (g)">
+			<h3><span class="hidden-xs">Brewed </span>Coffee (mL)</h3>
+			<input type="number" v-model="totalBrewedContent" @keyup="updateGrounds" required min="50" max="1000" placeholder="Brewed Coffee (mL)" value="200">
+			<br class="only-xs">
+			<h3>Grounds<span class="hidden-xs"> to Brew</span> (g)</h3>
+			<input type="number" v-model="requiredGrounds" @keyup="updateBrewed" required min="1" max="60" placeholder="Grounds to Brew (g)">
 		</card>
 
 		<card class="ib half-d">
