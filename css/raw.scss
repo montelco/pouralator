@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
 $font: 'Open Sans', sans-serif;
 
 /* White hsla(0,0%,99%,1) */
@@ -20,6 +20,7 @@ $terra_cotta: #e17c5e;
 $mint: #a4cdc0;
 $pewter: #9BA9B5;
 $steel_teal: #63798c;
+$roman_silver: #8C8F93;
 
 /* Gradient Colours Blue White to Dark Blue White*/
 $bg_light: hsla(220,1%,98%,0.8);
@@ -180,8 +181,15 @@ card, mini-card {
         background-position: center bottom;
         background-attachment: fixed;
     }
-        card{
-            background: hsla(0,0%,98%,0.75);
+    card{
+        background: hsla(0,0%,98%,0.75);
+        h3{
+            small{
+                font-weight: 300;
+                font-size: 0.75em;
+                color: $roman_silver;
+            }
+        }
     }
 
     .half-d{
@@ -211,7 +219,7 @@ card, mini-card {
         max-width: 15vw;
         max-height: 15vw;
         margin-top: 0.75rem !important;
-        margin-right: 2rem !important;
+        margin-right: 7vw !important;
         padding: 0;
 
         h1{
@@ -233,6 +241,9 @@ card, mini-card {
         h3{
             display: inline-block;
             width: 40vw;
+            &:last-of-type{
+                margin-left: 22vw;
+            }
         }
         h3 + input {
             display: inline-block;
@@ -264,6 +275,12 @@ input{
     background-size: 100%;
     color: $outer_space;
     resize: none;
+
+    &:last-of-type{
+        &::before{
+            content: '1: ';
+        }
+    }
 }
 
 input:focus, textarea:focus{
