@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 $font: 'Open Sans', sans-serif;
 
 /* White hsla(0,0%,99%,1) */
@@ -7,13 +7,14 @@ $white: hsla(0,0%,99%,1);
 /* Dark Colours Nickel hsla(194,15%,45%,1) */ 
 $dark: hsla(230,15%,15%,0.985);
 $nickel: #69707A;
+$outer_space: #3C4B46;
 
 /* Main Colour: Grey-Blue */
 $mc_hsla: hsla(219,22%,67,1);
 $mc_hsla_clear: hsla(219,22%,67,0.75);
 
 /* Secondary Colour:  Terra Cotta Orange hsla(14,58%,88%,1)*/
-$terra_cotta: #e17c5eff;
+$terra_cotta: #e17c5e;
 
 /* Accent Colour Mint hsla(161,20%,80%) */
 $mint: #a4cdc0;
@@ -128,17 +129,17 @@ card{
 
 mini-card{
     display: table;
-    background: #69707abb;
-    border: solid 1px #fcfcfc32;
+    background: rgba(105,112,122,188);
+    border: solid 1px rgba(250,250,250,0.2);
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.04);
     padding: 0.75em;
     margin-bottom: 0.5em;
 
     h1{
-    font-weight: 400;
-    display: table;
-    margin: 0 auto;
-    color: $white;
+        font-weight: 400;
+        display: table;
+        margin: 0 auto;
+        color: $white;
 
          picture img{
             flex: 1;
@@ -149,6 +150,9 @@ mini-card{
 
     h1 + em small {
         color: $mint;
+    }
+    h1 em{
+        font-weight: 600;
     }
 }
 
@@ -187,12 +191,11 @@ input{
     background: -webkit-linear-gradient(rgba(255, 255, 255, 0) 96%, $mint 4%);
     background: -o-linear-gradient(rgba(255, 255, 255, 0) 96%, $mint 4%);
     background: linear-gradient(rgba(255, 255, 255, 0) 96%, $mint 4%);
-    -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
     transition: all 0.25s cubic-bezier(0.64, 0.09, 0.08, 1);
     background-repeat: no-repeat;
     background-position: -100vw 0;
     background-size: 100%;
-    color: inherit;
+    color: $outer_space;
     resize: none;
 }
 
@@ -218,10 +221,7 @@ textarea:focus::-webkit-input-placeholder, textarea:valid::-webkit-input-placeho
     visibility: visible !important;
 }
 
-input[type=number]::-webkit-inner-spin-button{
-    -webkit-appearance: none;
-} 
-
+input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { 
-    
-}
+    -webkit-appearance: none;
+}     
