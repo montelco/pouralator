@@ -172,7 +172,7 @@ card, mini-card {
     display: none;
 }
 
-@media(min-width: 1245px){
+@media(min-width: 768px){
     html{
         @include grad(bottom, $bg_light, $bg_dark, '../bg.jpg');
         background-size: cover;
@@ -185,10 +185,16 @@ card, mini-card {
     }
 
     .half-d{
-        width: 47.25%;
+        width: 45%;
     }
     .ib{
         display: inline-block;
+    }
+}
+
+@media screen and (min-width: 1245px){
+    .half-d {
+        width: 47.25%;
     }
 }
 
