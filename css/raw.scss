@@ -204,6 +204,7 @@ card, mini-card {
         float: left;
         max-width: 15vw;
         max-height: 15vw;
+        margin-top: 0.75rem !important;
         margin-right: 2rem !important;
         padding: 0;
 
@@ -221,6 +222,8 @@ card, mini-card {
     }
 
     card.bl{
+        padding: 0.35em;
+
         h3{
             display: inline-block;
             width: 40vw;
