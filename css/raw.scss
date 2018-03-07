@@ -55,7 +55,7 @@ card{
     border: solid 1px $white;
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.08);
     padding: 1em;
-    margin-bottom: 2em;
+    margin-bottom: 8px;
 
     header{
         padding-bottom: 0.75rem;
@@ -165,8 +165,13 @@ card, mini-card {
     display: block;
 }
 
-.ib{
-    display: block;
+container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    card{
+        flex: 1;
+    }
 }
 
 .only-xs{
@@ -191,18 +196,19 @@ card, mini-card {
             }
         }
     }
-
-    .half-d{
-        width: 45%;
-    }
-    .ib{
-        display: inline-block;
-    }
 }
 
-@media screen and (min-width: 1245px){
-    .half-d {
-        width: 47.25%;
+@media screen and (min-width: 577px){
+    container {
+        flex-direction: row;
+        card{
+            &:nth-of-type(1) {
+                margin-right: 4px;
+            }
+            &:nth-of-type(2) {
+                margin-left: 4px;
+            }
+        }
     }
 }
 
@@ -213,7 +219,6 @@ card, mini-card {
     .only-xs{
         display: inherit;
     }
-
     mini-card{
         float: left;
         max-width: 15vw;
@@ -241,9 +246,9 @@ card, mini-card {
         h3{
             display: inline-block;
             width: 40vw;
-            &:last-of-type{
-                margin-left: 22vw;
-            }
+            // &:last-of-type{
+            //     margin-left: 22vw;
+            // }
         }
         h3 + input {
             display: inline-block;
@@ -252,10 +257,17 @@ card, mini-card {
         }
     }
     card:not(:last-of-type){
-        margin-bottom: 0.75em;
+        margin-bottom: 8px;
     }
-    card:last-of-type{
-        margin-bottom: 0;
+
+    container{
+        display: inline;
+        card {
+            display: block;
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+        }
     }
 }
 

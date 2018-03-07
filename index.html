@@ -30,45 +30,43 @@
 			<br class="only-xs">
 			<h3>Grounds<span class="hidden-xs"> to Brew</span> (g)</h3>
 			<input type="number" v-model="requiredGrounds" @keyup="updateBrewed" required min="1" max="60" aria-label="Grounds (in grams)" placeholder="Grounds to Brew (g)">
-			<br class="only-xs">
-			<h3>Ratio (1:n)</h3>
-			<input type="number" v-model="brewRatio" @keyup="updateRatio" required min="3" max="20" aria-label="Ratio (Ground to Water)" placeholder="Grounds to Brew (g)">
-		</card>
-
-		<card class="ib half-d">
-			<header>
-				<h2>{{totalBrewTimeMin}}:{{totalBrewTimeSec | two_digits}}s</h2><span>Total Brewing Time </span>
-			</header>
-			<timeline>
-				<point>
-					<i class="material-icons">access_time</i><span>Bloom</span><h3>{{bpTime}}s</h3>
-				</point>
-				<point>
-					<i class="material-icons">access_time</i><span>Median<br class="only-xs"><span class="only-xs">{{ timeRemainingMed }}s to go</span></span><h3>{{mpTime}}s</h3>
-				</point>
-				<point>
-					<i class="material-icons">access_time</i><span>Top-Off<br class="only-xs"><span class="only-xs">{{ timeRemainingTop }}s to go</span></span><h3>{{tpTime}}s</h3>
-				</point>
-			</timeline>
 		</card>
 		
-		<card class="ib half-d">
-			<header>
-				<h2>{{totalBrewedContent}} mL</h2><span>Total Brewed Amount </span>
-			</header>
-			<timeline>
-				<point>
-					<i class="material-icons">invert_colors</i><span>Bloom </span><h3>Add {{bpWater}} mL</h3>
-				</point>
-				<point>
-					<i class="material-icons">invert_colors</i><span>Median </span><h3>Add {{mpWater}} mL</h3>
-				</point>
-				<point>
-					<i class="material-icons">invert_colors</i><span>Top-Off </span><h3>Add {{tpWater}} mL</h3>
-				</point>
-			</timeline>
-		</card>
+		<container>
+			<card>
+				<header>
+					<h2>{{totalBrewTimeMin}}:{{totalBrewTimeSec | two_digits}}s</h2><span>Total Brewing Time </span>
+				</header>
+				<timeline>
+					<point>
+						<i class="material-icons">access_time</i><span>Bloom</span>
+					</point>
+					<point>
+						<i class="material-icons">access_time</i><span>Median<br class="only-xs"></span><h3>{{mpTime}}s</h3>
+					</point>
+					<point>
+						<i class="material-icons">access_time</i><span>Top-Off<br class="only-xs"></span><h3>{{tpTime}}s</h3>
+					</point>
+				</timeline>
+			</card>
 			
+			<card>
+				<header>
+					<h2>{{totalBrewedContent}} mL</h2><span>Total Brewed Amount </span>
+				</header>
+				<timeline>
+					<point>
+						<i class="material-icons">invert_colors</i><span>Bloom </span><h3>Add {{bpWater}} mL</h3>
+					</point>
+					<point>
+						<i class="material-icons">invert_colors</i><span>Median </span><h3>Add {{mpWater}} mL</h3>
+					</point>
+					<point>
+						<i class="material-icons">invert_colors</i><span>Top-Off </span><h3>Add {{tpWater}} mL</h3>
+					</point>
+				</timeline>
+			</card>
+		</container>	
 	</div>
 	<script>
 		if('serviceWorker' in navigator) {

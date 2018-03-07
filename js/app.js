@@ -12,10 +12,6 @@ var calculator = new Vue({
 		updateBrewed: function () {
 			this.$options.filters.always_pretty(this.$set('totalBrewedContent', this.requiredGrounds*this.brewRatio))
 		},
-		updateRatio: function () {
-			this.$options.filters.always_pretty(this.$set('totalBrewedContent', this.requiredGrounds*this.brewRatio))
-			this.$options.filters.always_pretty(this.$set('requiredGrounds', this.totalBrewedContent/this.brewRatio))
-		}
 	},
 	computed: {
 		totalBrewTime: function () {
